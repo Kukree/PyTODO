@@ -14,21 +14,21 @@ def edit_task(task):
     print("Введите номер части задачи для редактирования (1 - Задача, 2 - Статус) или введите 3 чтобы удалить задачу")
     try:
         task_part = int(input("\n> "))
+        if task_part != 1 and task_part != 2 and task_part != 3:
+            print("Неизвестная команда!")
+        elif task_part == 1:
+            new_task = input(todo_list[task]['task'] + ' -> ')
+            todo_list[task]['task'] = new_task
+        elif task_part == 2:
+            new_task = input(todo_list[task]['status'] + ' -> ')
+            todo_list[task]['status'] = new_task
+        elif task_part == 3:
+            print("Вы уверены что хотите удалить эту задачу?")
+            answer = input("\n(Y/n)> ")
+            if answer.lower() == 'y':
+                del todo_list[task]
     except ValueError:
         print("Неизвестная команда!")
-    if task_part != 1 and task_part != 2 and task_part != 3:
-        print("Неизвестная команда!")
-    elif task_part == 1:
-        new_task = input(todo_list[task]['task'] + ' -> ')
-        todo_list[task]['task'] = new_task
-    elif task_part == 2:
-        new_task = input(todo_list[task]['status'] + ' -> ')
-        todo_list[task]['status'] = new_task
-    elif task_part == 3:
-        print("Вы уверены что хотите удалить эту задачу?")
-        answer = input("\n(Y/n)> ")
-        if answer.lower() == 'y':
-            del todo_list[task]
 
 
 def add_task():
