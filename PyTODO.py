@@ -9,6 +9,10 @@ def view_todo_list():
         print('[', i, ']', todo_list[i]['task'], '|', todo_list[i]['status'])
 
 
+def edit_task(task_number):
+    print(todo_list[task_number]['task'], '|', todo_list[task_number]['status'], '\n')
+
+
 while True:
     print("Список задач: \n")
     view_todo_list()
@@ -17,4 +21,12 @@ while True:
     if command == "+":
         pass
     else:
-        pass
+        try:
+            command = int(command)
+        except ValueError:
+            print("Неверно введенное значение!")
+        try:
+            todo_list[command]
+            edit_task(command)
+        except IndexError:
+            print("Данного номера не существует!")
