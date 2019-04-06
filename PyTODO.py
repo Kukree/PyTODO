@@ -11,6 +11,19 @@ def view_todo_list():
 
 def edit_task(task):
     print(todo_list[task]['task'], '|', todo_list[task]['status'], '\n')
+    print("Введите номер части задачи для редактирования (1 - Задача, 2 - Статус)")
+    try:
+        task_part = int(input("\n> "))
+    except ValueError:
+        print("Неизвестная команда!")
+    if task_part != 1 and task_part != 2:
+        print("Неизвестная команда!")
+    elif task_part == 1:
+        new_task = input(todo_list[task]['task'] + ': ')
+        todo_list[task]['task'] = new_task
+    elif task_part == 2:
+        new_task = input(todo_list[task]['status'], ': ')
+        todo_list[task]['status'] = new_task
 
 
 while True:
@@ -23,6 +36,7 @@ while True:
     else:
         try:
             command = int(command)
+            command -= 1
         except ValueError:
             print("Неверно введенное значение!")
         try:
