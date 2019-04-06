@@ -12,4 +12,9 @@ def view_todo_list():
 
 while True:
     view_todo_list()
-    input()
+    print('\nВведите номер задачи или введите "+" чтобы добавить новую')
+    command = input("> ")
+    if command != "+":
+        pass
+    else:
+        pass
