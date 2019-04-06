@@ -22,7 +22,7 @@ def edit_task(task):
         new_task = input(todo_list[task]['task'] + ': ')
         todo_list[task]['task'] = new_task
     elif task_part == 2:
-        new_task = input(todo_list[task]['status'], ': ')
+        new_task = input(todo_list[task]['status'] + ': ')
         todo_list[task]['status'] = new_task
 
 
