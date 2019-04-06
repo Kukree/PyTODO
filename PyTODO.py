@@ -12,8 +12,11 @@ def view_todo_list():
 def edit_task(task):
     print(todo_list[task]['task'], '|', todo_list[task]['status'], '\n')
     print("Введите номер части задачи для редактирования (1 - Задача, 2 - Статус) или введите 3 чтобы удалить задачу")
+    print("Введите номер 4 для выхода из режима редактирования")
     try:
         task_part = int(input("\n> "))
+        if task_part == 4:
+            return
         if task_part != 1 and task_part != 2 and task_part != 3:
             print("Неизвестная команда!")
         elif task_part == 1:
