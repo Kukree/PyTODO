@@ -6,11 +6,11 @@ todo_list = loads(todo_list)
 
 def view_todo_list():
     for i, c in enumerate(todo_list):
-        print('[', i, ']', todo_list[i]['task'], '|', todo_list[i]['status'])
+        print('[', i + 1, ']', todo_list[i]['task'], '|', todo_list[i]['status'])
 
 
-def edit_task(task_number):
-    print(todo_list[task_number]['task'], '|', todo_list[task_number]['status'], '\n')
+def edit_task(task):
+    print(todo_list[task]['task'], '|', todo_list[task]['status'], '\n')
 
 
 while True:
