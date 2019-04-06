@@ -37,10 +37,9 @@ while True:
         try:
             command = int(command)
             command -= 1
-        except ValueError:
-            print("Неверно введенное значение!")
-        try:
             todo_list[command]
             edit_task(command)
+        except ValueError:
+            print("Неверно введенное значение!")
         except IndexError:
             print("Данного номера не существует!")
