@@ -1,4 +1,4 @@
-from json import loads
+from json import loads, dumps
 
 todo_list = open('todo_list.json').read()
 todo_list = loads(todo_list)
@@ -38,6 +38,10 @@ def add_task():
     todo_list.append(new_task)
 
 
+def save_file():
+    open('todo_list.json', 'w').write(dumps(todo_list))
+
+
 while True:
     print("Список задач: \n")
     view_todo_list()
@@ -45,12 +49,14 @@ while True:
     command = input("> ")
     if command == "+":
         add_task()
+        save_file()
     else:
         try:
             command = int(command)
             command -= 1
             todo_list[command]
             edit_task(command)
+            save_file()
         except ValueError:
             print("Неверно введенное значение!")
         except IndexError:
