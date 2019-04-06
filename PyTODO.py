@@ -26,13 +26,20 @@ def edit_task(task):
         todo_list[task]['status'] = new_task
 
 
+def add_task():
+    task_name = input("Имя новой задачи: ")
+    task_status = input("Статус новой задачи: ")
+    new_task = {'task': task_name, 'status': task_status}
+    todo_list.append(new_task)
+
+
 while True:
     print("Список задач: \n")
     view_todo_list()
     print('\nВведите номер задачи или введите "+" чтобы добавить новую')
     command = input("> ")
     if command == "+":
-        pass
+        add_task()
     else:
         try:
             command = int(command)
