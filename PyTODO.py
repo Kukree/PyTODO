@@ -50,7 +50,7 @@ while True:
     view_todo_list()
     print('\nВведите номер задачи или введите "+" чтобы добавить новую')
     command = input("> ")
-    if command == "+":
+    if command.replace(" ", "") == "+":
         add_task()
         save_file()
     else:
